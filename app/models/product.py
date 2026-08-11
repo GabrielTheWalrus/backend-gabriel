@@ -15,7 +15,7 @@ class Placeholder:
         }
 
 class Product:
-    def __init__(self, id: str, name: str, desc: str, price: float, images: list[str], placeholder: Placeholder, active: bool):
+    def __init__(self, id: str, name: str, desc: str, price: float, images: list[str], placeholder: Placeholder, active: bool, tags: list[str], order: int, stock: int):
         self.id = id
         self.name = name
         self.desc = desc
@@ -23,6 +23,9 @@ class Product:
         self.images = images
         self.placeholder = Placeholder(**placeholder)
         self.active = active
+        self.tags = tags
+        self.order = order
+        self.stock = stock
 
     def to_dict(self):
         return {
@@ -32,5 +35,8 @@ class Product:
             "price": self.price,
             "images": self.images,
             "placeholder": self.placeholder,
-            "active": self.active
+            "active": self.active,
+            "tags": self.tags,
+            "order": self.order,
+            "stock": self.stock
         }
